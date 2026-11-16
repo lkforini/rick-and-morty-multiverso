@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b24">
+  <meta name="description" content="Explore personagens do universo Rick and Morty com dados carregados diretamente de uma API pública.">
+  <title>Portal Multiversal | Rick and Morty</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Portal Multiversal - início">
+      <span class="brand__symbol" aria-hidden="true">✦</span>
+      <span>PORTAL<span class="brand__accent"> MULTIVERSAL</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#explorador">Personagens</a>
+      <a href="#sobre">Sobre o projeto</a>
+    </nav>
+    <a class="header-link" href="https://rickandmortyapi.com/documentation" target="_blank" rel="noreferrer">Documentação ↗</a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero__content">
+        <p class="eyebrow"><span class="eyebrow__dot"></span> ACESSO AUTORIZADO AO MULTIVERSO</p>
+        <h1>Conheça o universo<br><span>Rick and Morty.</span></h1>
+        <p class="hero__description">
+          Uma expedição por dimensões, criaturas e personagens. Os dados exibidos nesta página
+          são consultados diretamente na API oficial da série.
+        </p>
+        <a class="primary-button" href="#explorador">Explorar personagens <span aria-hidden="true">↓</span></a>
+        <div class="hero__notes">
+          <span>HTML + CSS + JavaScript</span>
+          <span class="hero__separator">•</span>
+          <span>API REST pública</span>
+        </div>
+      </div>
+      <div class="portal-art" aria-label="Ilustração abstrata de um portal interdimensional" role="img">
+        <div class="portal-art__ring portal-art__ring--outer"></div>
+        <div class="portal-art__ring portal-art__ring--middle"></div>
+        <div class="portal-art__core"><span>R&amp;M</span></div>
+        <span class="portal-art__spark portal-art__spark--one">✦</span>
+        <span class="portal-art__spark portal-art__spark--two">✧</span>
+        <span class="portal-art__orbit-label">DIMENSION C-137</span>
+      </div>
+      <div class="hero__bottom-line" aria-hidden="true"></div>
+    </section>
+
+    <section class="explorer section-shell" id="explorador">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BANCO DE DADOS INTERDIMENSIONAL</p>
+          <h2>Arquivo de <span>personagens</span></h2>
+          <p class="section-heading__description">Pesquise, filtre e descubra quem está espalhado pelo multiverso.</p>
+        </div>
+        <div class="database-status"><span class="database-status__dot"></span> API ONLINE</div>
+      </div>
+
+      <div class="stats-row" aria-label="Resumo da consulta">
+        <div class="stat-card">
+          <span class="stat-card__label">PERSONAGENS ENCONTRADOS</span>
+          <strong id="totalCount" class="stat-card__value">—</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">PÁGINA ATUAL</span>
+          <strong id="pageNumber" class="stat-card__value">—</strong>
+        </div>
+        <div class="stat-card stat-card--wide">
+          <span class="stat-card__label">FONTE DOS DADOS</span>
+          <strong class="stat-card__value stat-card__value--small">rickandmortyapi.com</strong>
+        </div>
+      </div>
+
+      <form class="filters" id="searchForm">
+        <label class="search-field" for="searchInput">
+          <span class="search-field__icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" name="name" type="search" placeholder="Buscar personagem pelo nome..." autocomplete="off">
+        </label>
+        <label class="status-field" for="statusFilter">
+          <span class="visually-hidden">Filtrar por status</span>
+          <select id="statusFilter" name="status">
+            <option value="">Todos os status</option>
+            <option value="alive">Vivo</option>
+            <option value="dead">Morto</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+        </label>
+        <button class="filter-button" type="submit">Buscar</button>
+        <button class="clear-button" id="clearFiltersButton" type="button">Limpar</button>
+      </form>
+
+      <div class="results-toolbar">
+        <p id="resultsMessage" class="results-message" aria-live="polite">Conectando à API...</p>
+        <p class="results-hint">Até 20 registros por página</p>
+      </div>
+
+      <!-- O JavaScript cria e insere os cards da API neste espaço. -->
+      <section id="characterGrid" class="character-grid" aria-label="Personagens encontrados" aria-live="polite" aria-busy="true"></section>
+
+      <nav class="pagination" aria-label="Paginação dos personagens">
+        <button id="previousButton" class="page-button" type="button" disabled>← Anterior</button>
+        <span id="paginationLabel" class="pagination__label">Página — de —</span>
+        <button id="nextButton" class="page-button page-button--next" type="button" disabled>Próxima →</button>
+      </nav>
+    </section>
+
+    <section class="about-section" id="sobre">
+      <div class="about-section__inner section-shell">
+        <div>
+          <p class="eyebrow">SOBRE A EXPERIÊNCIA</p>
+          <h2>Um projeto que conecta<br><span>front-end e API.</span></h2>
+        </div>
+        <div class="about-section__text">
+          <p>
+            Este site foi desenvolvido como projeto acadêmico para demonstrar a integração entre
+            HTML, CSS e JavaScript. A aplicação utiliza <strong>fetch()</strong> para solicitar
+            personagens à API e manipula o DOM para montar os cards de forma dinâmica.
+          </p>
+          <a href="https://rickandmortyapi.com/about" target="_blank" rel="noreferrer">Conheça a API Rick and Morty ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>PORTAL MULTIVERSAL <span>•</span> Projeto acadêmico de desenvolvimento front-end</p>
+    <p>Dados fornecidos pela <a href="https://rickandmortyapi.com/" target="_blank" rel="noreferrer">Rick and Morty API</a>.</p>
+  </footer>
+</body>
+</html>
