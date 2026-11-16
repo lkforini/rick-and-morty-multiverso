@@ -10,12 +10,22 @@ Projeto academico de front-end que consome a [Rick and Morty API](https://rickan
 
 ## Como executar no computador
 
-1. Extraia o arquivo ZIP.
-2. Abra o Visual Studio Code.
-3. Clique em **File > Open Folder** (Arquivo > Abrir Pasta) e selecione a pasta `rick-and-morty-multiverso`.
-4. Instale a extensao **Live Server**, caso ainda nao tenha.
-5. Abra `index.html`, clique com o botao direito e escolha **Open with Live Server**.
-6. O navegador abrira a pagina. Os primeiros personagens devem aparecer automaticamente.
+### Opção 1 — Baixando pelo GitHub
+
+1. Acesse o repositório do projeto.
+2. Clique no botão verde `Code`.
+3. Selecione `Download ZIP`.
+4. Extraia o arquivo baixado para uma pasta do computador.
+5. Abra o Visual Studio Code.
+6. Clique em `File > Open Folder` e selecione a pasta extraída.
+7. Abra o arquivo `index.html`.
+8. Clique com o botão direito e selecione `Open with Live Server`.
+
+### Opção 2 — Utilizando os arquivos do projeto
+
+Se você já possui os arquivos do projeto no computador, basta abrir a pasta principal no Visual Studio Code e executar o `index.html` utilizando o Live Server.
+
+**Observação:** não é necessário enviar o arquivo ZIP para o GitHub. O repositório já contém os arquivos individuais organizados nas pastas correspondentes.
 
 Tambem e possivel abrir `index.html` diretamente no navegador, pois o projeto nao usa servidor proprio nem processo de compilacao. Para desenvolvimento, o Live Server facilita a atualizacao automatica.
 
